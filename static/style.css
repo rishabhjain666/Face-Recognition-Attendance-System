@@ -1,0 +1,516 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body with Liquid Moving Gradient */
+body {
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(-45deg, #1b1f3b, #241e92, #5432d3, #ff4ecd);
+    background-size: 500% 500%;
+    animation: bgMove 30s ease infinite;
+    color: #e5e7eb;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px;
+    overflow-x: hidden;
+}
+
+@keyframes bgMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Glass Container */
+.container {
+    width: 100%;
+    max-width: 960px;
+    background: rgba(255, 255, 255, 0.07);
+    backdrop-filter: blur(18px);
+    border-radius: 20px;
+    padding: 40px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4),
+                inset 1px 1px 6px rgba(255, 255, 255, 0.1);
+    animation: fadeIn 0.6s ease;
+    transition: transform 0.4s ease;
+    margin-bottom: 20px;
+}
+
+.container:hover {
+    transform: scale(1.015);
+}
+
+/* Heading - Neon Gradient Glow */
+h2 {
+    font-size: 2.4rem;
+    font-weight: 800;
+    text-align: center;
+    margin-bottom: 30px;
+    background: linear-gradient(90deg, #8c52ff, #ff4ecd, #7ef9ff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 20px rgba(255, 78, 205, 0.5);
+}
+
+/* Alert box for login errors */
+.alert {
+  padding: 14px 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.alert-error {
+  background: rgba(239, 68, 68, 0.15);
+  color: #f87171;
+  border: 1px solid rgba(239, 68, 68, 0.5);
+  box-shadow: 0 0 8px rgba(239, 68, 68, 0.3);
+}
+
+/* Optional: spacing for button icons */
+.btn i {
+  margin-right: 8px;
+}
+
+.spinner {
+  margin-left: 10px;
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  vertical-align: middle;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Table enhancement */
+table {
+  margin-top: 24px;
+  background: rgba(30, 41, 59, 0.25);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+/* Image inside table */
+td img {
+  height: 60px;
+  border-radius: 10px;
+  object-fit: cover;
+  box-shadow: 0 0 5px rgba(255, 255, 255, 0.2);
+}
+
+/* Highlight timestamps in table */
+td span {
+  font-weight: 500;
+}
+
+/* Ensure table headers look vivid */
+th i {
+  margin-right: 6px;
+}
+
+/* Labels and Inputs */
+label {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #d1d5db;
+    margin-bottom: 8px;
+    display: block;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="file"] {
+    width: 100%;
+    padding: 14px;
+    font-size: 1rem;
+    border-radius: 12px;
+    border: none;
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    transition: box-shadow 0.3s ease, background 0.3s ease;
+}
+
+input:focus {
+    outline: none;
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 0 15px #ff4ecd, 0 0 5px #7ef9ff;
+}
+
+/* Buttons - Cyberpunk Gradient + Shine */
+button, .btn {
+    display: inline-block;
+    padding: 14px 28px;
+    border: none;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    color: #fff;
+    background: linear-gradient(90deg, #8c52ff, #ff4ecd, #7ef9ff);
+    background-size: 200% 200%;
+    animation: pulseGradient 4s ease infinite;
+    box-shadow: 0 0 15px rgba(140, 82, 255, 0.5);
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.flex-row {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-top: 8px;
+}
+
+.nav-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+    margin-top: 24px;
+}
+
+button i, a.btn i {
+    margin-right: 6px;
+}
+@media (max-width: 480px) {
+    .flex-row {
+        flex-direction: column;
+        align-items: stretch;
+    }
+}
+
+
+button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 25px rgba(255, 78, 205, 0.7);
+}
+
+@keyframes pulseGradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Gradient Border Cards / Tables */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    overflow: hidden;
+    margin-top: 24px;
+    border: 2px solid transparent;
+    background-clip: padding-box;
+    position: relative;
+}
+
+table::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    border-radius: 16px;
+    padding: 2px;
+    background: linear-gradient(135deg, #8c52ff, #ff4ecd, #7ef9ff);
+    background-size: 400% 400%;
+    animation: pulseGradient 10s ease infinite;
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+    -webkit-mask-composite: destination-out;
+}
+
+th, td {
+    padding: 18px;
+    font-size: 0.95rem;
+    color: #e0e8f0;
+    text-align: left;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+th {
+    font-weight: 600;
+    background: rgba(140, 82, 255, 0.1);
+    color: #dcd6ff;
+}
+
+/* Toasts */
+.toast {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 14px 28px;
+    border-radius: 12px;
+    font-size: 0.95rem;
+    background: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    z-index: 9999;
+    box-shadow: 0 0 20px rgba(255, 78, 205, 0.5);
+    animation: slideUp 0.3s ease forwards, fadeOut 4s ease 3s forwards;
+}
+
+.toast-success { background: rgba(34, 197, 94, 0.9); }
+.toast-error { background: rgba(239, 68, 68, 0.9); }
+
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeOut {
+    to { opacity: 0; }
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.85);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    padding: 30px;
+    border-radius: 20px;
+    width: 90%;
+    max-width: 500px;
+    border: 2px solid rgba(255, 255, 255, 0.15);
+    animation: slideIn 0.4s ease;
+}
+
+@keyframes slideIn {
+    from { transform: translateY(-40px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+/* Spinner */
+.spinner {
+    border: 4px solid rgba(255,255,255,0.1);
+    border-top: 4px solid #ff4ecd;
+    border-radius: 50%;
+    width: 28px;
+    height: 28px;
+    animation: spin 1s linear infinite;
+    margin: 0 auto;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    h2 { font-size: 1.8rem; }
+    .container { padding: 24px; }
+    table, th, td { font-size: 0.85rem; }
+    .btn { font-size: 0.85rem; }
+}
+
+@media (max-width: 480px) {
+    .container { padding: 16px; }
+    button, .btn { padding: 10px 16px; font-size: 0.8rem; }
+    th, td { padding: 12px; }
+}
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group input[type="text"],
+.input-group input[type="file"] {
+    margin-top: 6px;
+}
+
+.button-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-bottom: 20px;
+}
+
+.button-group .btn {
+    flex: 1 1 auto;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: center;
+    text-align: center;
+    min-width: 180px;
+}
+
+/* Optional Icons (from FontAwesome) */
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css');
+
+.flex-row {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.nav-buttons {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 24px;
+}
+
+button i, a.btn i {
+  margin-right: 6px;
+}
+
+.btn {
+  position: relative;
+  box-shadow: 0 0 12px rgba(165, 180, 252, 0.2);
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 20px rgba(165, 180, 252, 0.6);
+}
+
+.btn-primary {
+  background: linear-gradient(90deg, #f472b6, #60a5fa);
+  color: #fff;
+}
+
+.btn-secondary {
+  background: linear-gradient(90deg, #a78bfa, #38bdf8);
+  color: #fff;
+}
+
+.btn-success {
+  background: linear-gradient(90deg, #34d399, #10b981);
+  color: #fff;
+}
+
+.btn-danger {
+  background: linear-gradient(90deg, #f87171, #ef4444);
+  color: #fff;
+}
+
+h2 i {
+  margin-right: 10px;
+  color: #f472b6;
+  filter: drop-shadow(0 0 5px #f472b6);
+}
+/* General container padding */
+.container {
+  padding: 2rem;
+  max-width: 800px;
+  margin: auto;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Heading Styling */
+h2 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  text-align: center;
+  color: #ff5ec2;
+  margin-bottom: 25px;
+  text-shadow: 0 0 10px #ff5ec2;
+}
+h2 i {
+  font-size: 1.5rem;
+  margin-right: 10px;
+}
+
+/* Input Group Spacing */
+.input-group {
+  margin-bottom: 20px;
+}
+
+/* Flex layout for image + student buttons */
+.flex-row {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* All buttons */
+.btn {
+  padding: 10px 20px;
+  font-weight: bold;
+  border: none;
+  border-radius: 12px;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+}
+.btn i {
+  margin-right: 8px;
+}
+
+/* Specific colors */
+.btn-primary {
+  background: linear-gradient(to right, #f472b6, #60a5fa);
+  color: white;
+}
+.btn-success {
+  background: linear-gradient(to right, #22c55e, #10b981);
+  color: white;
+}
+.btn-secondary {
+  background: linear-gradient(to right, #a78bfa, #38bdf8);
+  color: white;
+}
+.btn-danger {
+  background: linear-gradient(to right, #ef4444, #f87171);
+  color: white;
+}
+
+/* Hover Effects */
+.btn:hover {
+  transform: scale(1.03);
+  box-shadow: 0 6px 18px rgba(255, 255, 255, 0.3);
+}
+
+/* Nav buttons */
+.nav-buttons {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 30px;
+}
+.dashboard-icon {
+  color: #60a5fa; /* Light Blue */
+  font-size: 2rem;
+  margin-right: 10px;
+  vertical-align: middle;
+  text-shadow: 0 0 3px rgba(255, 255, 255, 0.3); /* very subtle */
+}
+

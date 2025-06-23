@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="/static/style.css" />
+  <script src="/static/script.js" defer></script>
+
+  <!-- FontAwesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+</head>
+<body>
+  <div class="container">
+    <h2><i class="fas fa-chart-line dashboard-icon"></i> Dashboard</h2>
+
+
+
+
+    <form id="add-student-form" action="/add_student" method="POST" enctype="multipart/form-data">
+      <div class="input-group">
+        <label for="name"><i class="fas fa-user"></i> Student Name</label>
+        <input type="text" id="name" name="name" required />
+      </div>
+
+      <div class="input-group">
+        <label for="image"><i class="fas fa-image"></i> Student Image</label>
+        <div class="flex-row">
+          <input type="file" id="image" name="image" accept="image/*" style="display: none;" />
+          <input type="hidden" id="image_data" name="image_data" />
+          <button type="button" class="btn btn-secondary" onclick="openImageSourceModal()">
+            <i class="fas fa-camera"></i> Choose Image
+          </button>
+
+          <button type="submit" class="btn btn-success">
+            <i class="fas fa-plus"></i> Add Student
+          </button>
+        </div>
+      </div>
+    </form>
+
+    <div class="nav-buttons">
+      <a href="/students" class="btn btn-primary">
+        <i class="fas fa-users"></i> View Students
+      </a>
+      <a href="/mark_attendance" class="btn btn-primary">
+        <i class="fas fa-check-circle"></i> Start Attendance
+      </a>
+      <a href="/attendance" class="btn btn-primary">
+        <i class="fas fa-calendar-alt"></i> View Attendance
+      </a>
+      <button class="btn btn-danger" onclick="openClearDataModal()">
+        <i class="fas fa-trash-alt"></i> Clear All Data
+      </button>
+    </div>
+  </div>
+
+  <!-- Image Source Modal -->
+  <div id="image-source-modal" class="modal">
+    <div class="modal-content">
+      <h3><i class="fas fa-image"></i> Choose Image Source</h3>
+      <p>Select how to provide the student image.</p>
+      <div class="modal-buttons">
+        <button class="btn btn-primary" onclick="triggerFileInput()">
+          <i class="fas fa-upload"></i> Upload Image
+        </button>
+        <button class="btn btn-primary" onclick="openCameraModal()">
+          <i class="fas fa-video"></i> Capture Live Photo
+        </button>
+        <button class="btn btn-secondary" onclick="closeImageSourceModal()">
+          <i class="fas fa-times"></i> Cancel
+        </button>
+      </div>
+
+      <div id="camera-modal" style="display: none; margin-top: 20px;">
+        <video id="video" width="100%" autoplay style="border-radius: 12px;"></video>
+        <button class="btn btn-success" onclick="captureImage()" style="margin-top: 10px;">
+          <i class="fas fa-camera-retro"></i> Capture
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Clear Data Modal -->
+  <div id="clear-data-modal" class="modal">
+    <div class="modal-content">
+      <h3><i class="fas fa-exclamation-triangle"></i> Confirm Clear Data</h3>
+      <p>Are you sure you want to delete all students and attendance records? This action cannot be undone.</p>
+      <div class="modal-buttons">
+        <button class="btn btn-secondary" onclick="closeClearDataModal()">
+          <i class="fas fa-times"></i> Cancel
+        </button>
+        <button class="btn btn-danger" onclick="clearData()">
+          <i class="fas fa-trash"></i> Confirm
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Container -->
+  <div id="toast-container"></div>
+</body>
+</html>

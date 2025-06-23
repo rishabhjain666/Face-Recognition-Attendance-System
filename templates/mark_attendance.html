@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mark Attendance</title>
+  <link rel="stylesheet" href="/static/style.css" />
+  <script src="/static/script.js" defer></script>
+
+  <!-- FontAwesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+  <div class="container">
+    <h2><i class="fas fa-camera"></i> Mark Attendance</h2>
+
+    <div class="input-group">
+      <label for="video"><i class="fas fa-video"></i> Live Camera Preview</label>
+      <video id="video" width="100%" autoplay style="border-radius: 16px; border: 2px solid rgba(99, 102, 241, 0.3); box-shadow: 0 0 15px rgba(99, 102, 241, 0.2);"></video>
+    </div>
+
+    <div class="button-group">
+      <button class="btn btn-success" onclick="captureAttendance()">
+        <i class="fas fa-check-circle"></i> Capture & Mark Attendance
+        <span class="spinner" id="capture-spinner"></span>
+      </button>
+    </div>
+
+    <div class="nav-buttons">
+      <a href="/dashboard" class="btn btn-primary">
+        <i class="fas fa-arrow-left"></i> Back to Dashboard
+      </a>
+    </div>
+  </div>
+
+  <!-- Toast Container -->
+  <div id="toast-container"></div>
+</body>
+</html>
